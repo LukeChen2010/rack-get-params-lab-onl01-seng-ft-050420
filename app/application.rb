@@ -27,11 +27,8 @@ class Application
       if !@@items.include?(search_term)
         resp.write "We don't have that item"
       else
-        if @@cart.include?(search_term)
-          resp.write "Already in cart"
-        else
-          resp.write "added #{search_term}"
-          @@cart << search_term
+        resp.write "dded #{search_term}"
+        @@cart << search_term
         end
       end
     else
