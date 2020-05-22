@@ -24,11 +24,15 @@ class Application
       end
     elsif req.path.match(/add/)
       search_term = req.params["q"]
-      if @@cart.include?(search_term)
-        resp.write "Already in cart"
+      if !@@items.include?(search_term)
+        resp.write "We don't have that item"
       else
-        resp.write "Added #{search_term} to cart"
-        @@cart << search_term
+        if @@cart.include?(search_term)
+          resp.write "Already in cart"
+        else
+          resp.write "Added #{search_term} to cart"
+          @@cart << search_term
+        end
       end
     else
       resp.write "Path Not Found"
