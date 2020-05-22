@@ -30,7 +30,7 @@ class Application
         if @@cart.include?(search_term)
           resp.write "Already in cart"
         else
-          resp.write "dded #{search_term}"
+          resp.write "added #{search_term}"
           @@cart << search_term
         end
       end
